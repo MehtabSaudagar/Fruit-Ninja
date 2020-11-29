@@ -49,7 +49,7 @@ function draw(){
     knife.x=mouseX;
     knife.y=mouseY;
 
-
+    spawnFruits1();
     spawnFruits();
     spawnAliens();
     spawnAliens1();
@@ -96,13 +96,39 @@ function spawnFruits(){
         break;
         default:break;
     }
-    fruit.scale=0.15
+    fruit.scale=0.15;
+    fruit.y=Math.round(random(10,400));
   fruit.velocityX=-4;
   fruit.lifetime=200;
   fruitGroup.add(fruit);
   }
 }
-
+function spawnFruits1(){
+  var rand;
+  
+  if(frameCount%60===0){
+    
+    fruit1=createSprite(0,10,10,10);
+  
+    rand=Math.round(random(1,4));
+    switch(rand){
+      case 1: fruit1.addImage("fruit1",fruit1);
+        break;
+      case 2: fruit1.addImage("fruit2",fruit2);
+        break;
+      case 3: fruit1.addImage("fruit3",fruit3);
+        break;
+      case 4: fruit1.addImage("fruit4",fruit4);
+        break;
+        default:break;
+    }
+    fruit1.scale=0.15;
+    fruit1.y=Math.round(random(10,400));
+  fruit1.velocityX=4;
+  fruit1.lifetime=200;
+  fruitGroup.add(fruit1);
+  }
+}
 function spawnAliens(){
   var selectAlien;
   
